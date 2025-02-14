@@ -37,8 +37,8 @@ def verify_proof(input_file, institution_public_key):
     institution_signature = signed_data["institution_signature"]
 
 
-    print("raw data of institute signature:", signed_json_str)
-    print("Base64 format data of institute signature:", institution_signature)
+    print("raw data of institution signature:", signed_json_str)
+    print("Base64 format data of institution signature:", institution_signature)
 
 
     try:

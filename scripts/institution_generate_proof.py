@@ -3,12 +3,12 @@ import base64
 from cryptography.hazmat.primitives import serialization, hashes
 from cryptography.hazmat.primitives.asymmetric import padding
 
-# read private key of institute
+# read private key of institution
 def load_private_key(path):
     with open(path, "rb") as key_file:
         return serialization.load_pem_private_key(key_file.read(), password=None)
 
-# Institute use priavte key to sign data
+# institution use priavte key to sign data
 def sign_data(private_key, data):
     return private_key.sign(
         data,
@@ -26,7 +26,7 @@ def save_json(filename, data):
     with open(filename, "w") as f:
         json.dump(data, f, indent=4)
 
-# Institute sign `proof.json`
+# institution sign `proof.json`
 def sign_proof(input_file, institution_private_key, output_file):
     # read raw JSON data
     data = load_json(input_file)
@@ -48,4 +48,4 @@ if __name__ == "__main__":
 
     sign_proof("../proof/proof.json", institution_private_key, "../proof/proof_signed_by_institution.json")
 
-    print("generate institute signature success!")
+    print("generate institution signature success!")
